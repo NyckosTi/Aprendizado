@@ -1,0 +1,50 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <p:dataTable value="#{envolvidoBean.envolvidobase}" var="envolvido" id="tabelaItens">
+        <p:column headerText="CPF" style="text-align: center; width: 70px">
+            <p:inputMask id="cpf" value="#{envolvidoBean.envolvidobase.cpf}" mask="999.999.999-99" size="9" />
+        </p:column>
+        <p:column headerText="Nome" style="text-align: left; width: 450px">
+            <p:autoComplete styleClass="produto-tabela" size="90"/>
+        </p:column>
+        <p:column headerText="Qualificação" style="text-align: center; width: 90px">
+            <p:selectOneMenu >
+                <f:selectItem itemLabel="Selecione" itemValue="" />
+                <f:selectItem itemLabel="Autor" itemValue="Autor" />
+                <f:selectItem itemLabel="Vítima" itemValue="Vítima" />
+                <f:selectItem itemLabel="Denunciante" itemValue="Denunciante" />
+                <f:selectItem itemLabel="Solicitante" itemValue="Solicitante" />
+            </p:selectOneMenu>
+        </p:column>
+
+        <p:column headerText="Sexo" style="text-align: center; width: 80px">
+            <!--            <p:inputText size="8" value="1" />-->
+            <p:selectOneMenu >
+                <f:selectItem itemLabel="Selecione" itemValue="" />
+                <f:selectItem itemLabel="Feminino" itemValue="Feminino" />
+                <f:selectItem itemLabel="Masculino" itemValue="Masculino" />
+                            </p:selectOneMenu>
+        </p:column>
+        <p:column headerText="Data de Nascimento" style="text-align: center; width: 80px">
+            <p:calendar  locale="pt_BR"
+                                    pattern="dd/MM/yyyy"
+                                    autocomplete="true" mask="true" navigator="true" 
+                                    showButtonPanel="true" size="9"/>
+        </p:column>
+        <p:column headerText="Controle" style="text-align: center; width: 40px">
+
+        </p:column>
+
+        <p:columnGroup type="footer">
+            <p:row>
+                <p:column colspan="5" footerText="Total de Envolvidos" style="text-align: right" />
+                <p:column footerText="" style="text-align: right" />
+            </p:row>
+        </p:columnGroup>
+    </p:dataTable>
+
+</ui:composition>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+       <h:head>
+              <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+              <title><ui:insert name="titulo">Sistema de controle de ocorrências</ui:insert></title>
+              <h:outputStylesheet library="css" name="sistema.css" />
+              <h:outputScript library="js" name="jquery.maskMoney.js"/>
+       </h:head>
+
+       <h:body>
+              <p:ajaxStatus styleClass="ajax-status" onsuccess="configurarMoeda()">
+                     <f:facet name="start">
+                            <h:graphicImage library="images" name="loading.gif"/>
+                     </f:facet>
+                     <f:facet name="complete">
+                            <h:outputText value=""/>
+                     </f:facet>
+              </p:ajaxStatus>
+
+              <header>
+                     <div style="float: left">
+                            <h:link outcome="/Home">
+                                   <h:graphicImage library="images" name="sistema.png" />
+                            </h:link>
+                     </div>
+
+                     <div style="float: right; margin-right: 5px">
+                            <span style="float: left; height: 10px; line-height: 0px; margin-right: 0px">
+                                   Olá usuário!
+                            </span>
+
+                            <h:form style="display: inline-block">
+                                   <p:menubar styleClass="menu-sistema">
+                                          <p:submenu label="Cadastros">
+                                                 <p:menuitem value="Envolvido" outcome="/envolvido/CadastroEnvolvido" />
+                                                 <p:separator/>
+                                                 <p:menuitem value="Usuários" />
+                                                 <p:separator/>
+                                                 <p:menuitem value="Categorias" />
+                                                 <p:separator/>
+                                                 <p:menuitem value="Ocorrencia" outcome="/ocorrencia/CadastroOcorrencia" />
+                                                 <p:separator/>
+                                                 <p:menuitem value="Atendimento" outcome="/atendimento/CadastroAtendimento" />
+                                                 <p:separator/>
+                                          </p:submenu>
+                                          <p:submenu label="Pesquisas">
+                                                 <p:menuitem value="Buscar Antendimento" outcome="/pesquisa/PesquisaAtendimento" />
+                                                 <p:separator/>
+                                                 <p:menuitem value="Buscar Envolvido" outcome="/pesquisa/PesquisaEnvolvido" />
+                                                 <p:separator/>
+                                                 <p:menuitem value="Buscar Ocorrência" outcome="/pesquisa/PesquisaOcorrencia" />
+                                          </p:submenu>
+                                          <p:menuitem value="Sair" />
+                                   </p:menubar>
+                            </h:form>
+                     </div>
+                     <div style="clear: both"></div>
+              </header>
+
+              <div id="conteudo">
+                     <ui:insert name="corpo"/>
+              </div>
+
+              <p:separator style="margin-top: 20px"/>
+
+              <footer>
+                     <a  href="/faces/welcomePrimefaces" target="_blank">Entenda o Sistema</a>
+                     <br />                          Nyckos aprendiz de professor
+                     <br />
+                     Site da corporação -
+                     <a href="http://pm.to.gov.br/" target="_blank">www.pm.to.gov.br/</a>
+              </footer>
+
+              <script>
+                     function configurarMoeda() {
+                            $(".moeda").maskMoney({decimal: ",", thousands: ".", allowZero: true});
+                     }
+
+                     $(document).ready(function () {
+                            configurarMoeda();
+                     });
+              </script>
+       </h:body>
+
+</html>

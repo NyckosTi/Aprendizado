@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Confirmação</title>
+    </h:head>
+    <h:body>
+        <p:tab id="confirm" title="Conferência dos dados" class="p_tabclass">
+            <p:panel header="Confita se os dados cadastrados estão corretos">
+                <p:panelGrid id="confirmation" columns="2" columnClasses="rightalign-bold, leftalign" >
+                    <h:panelGrid columns="2" columnClasses="label, value" >
+                        <h:outputText value="Nome " />
+                        <h:outputText value="#{envolvidoBean.envolvidobase.nome}"/>
+
+
+                        <h:outputText value="Apelido: " />
+                        <h:outputText value="#{envolvidoBean.envolvidobase.apelido}"/>
+
+                        <h:outputText value="Sexo: " />
+                        <h:outputText value="#{envolvidoBean.envolvidobase.sexo}"
+                                      styleClass="outputLabel" />
+
+                        <h:outputText value="Data de nascimento: " />
+                        <h:outputText
+                            value="#{envolvenvolvidobasenvolvido.dtNascimento}"
+                            styleClass="outputLabel">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </h:outputText>
+
+                        <h:outputText value="Rg: " />
+                        <h:outputText value="#{envolvidoBean.envolvidobase.rg}"
+                                      styleClass="outputLabel" />
+
+                        <h:outputText value="Orgão Emissor: " />
+                        <h:outputText value="#{envolvidoBenvolvidobasevido.orgao}"
+                                      styleClass="outputLabel" />
+
+                        <h:outputText value="Cor: " />
+                        <h:outputText value="#{envolvidoBean.envolvidobase.cor}"
+                                      styleClass="outputLabel" />
+
+                        <h:outputText value="Cpf: " />
+                        <h:outputText value="envolvidobasedoBean.envolvido.cpf}" styleClass="outputLabel" />
+
+                        <h:outputText value="Pai: " />
+                        <h:outputText value="envolvidobasedoBean.envolvido.pai}"
+                                      styleClass="outputLabel" />
+
+                        <h:outputText value="Mãe: " />
+                        <h:outputText value="#{envolvidoBean.envolvidobase.mae}"
+                                      styleClass="outputLabel" />
+
+                        <h:outputText value="Estado Civíl: " />
+                        <h:outputText
+                            value="#{envolvidoBean.envolvidobase.estadocivil}"
+                            styleClass="outputLabel" />
+
+                        <h:outputText value="Profissão: " />
+                        <h:outputText value="#{envolvidoBenvolvidobasevido.profissao}"
+                                      styleClass="outputLabel" />
+
+                        <h:outputText value="Local de Trabalho: " />
+                        <h:outputText
+                           envolvidobase{envolvidoBean.envolvido.localTrabalh}"
+                            styleClass="outputLabel" />
+
+                    </h:panelGrid>
+
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Logradouro: " />
+                        <h:outputText value="#{envolvenvolvidobasenvolvido.logradouro}"
+                                      styleClass="outputLabel" />
+
+                        <h:outputText value="Número: " />
+                        <h:outputText value="envolvidobasedoBean.envolvido.numero}"
+                                      styleClass="outputLabel" />
+
+                        <h:outputText value="Cidade: " />
+                        <h:outputText value="#{listaEstado.cidade}"
+                                      styleClass="outputLabel" />
+
+                        <h:outputText value="Referencia: " />
+                        <h:outputText valenvolvidobaseolvidoBean.envolvido.referencia}"
+                                      styleClass="outputLabel" />
+
+                        <h:outputText value="CEP: " />
+                        <h:outputTextenvolvidobase{envolvidoBean.envolvido.cep}"
+                                      styleClass="outputLabel" />
+
+                        <h:outputText value="Uf: " />
+                        <h:outputText value="#{listaEstado.estado}"
+                                      styleClass="outputLabel" />
+
+                        <h:outputText value="País: " />
+     envolvidobase          <h:outputText value="#{envolvidoBean.envolvido.pais}"
+                                      styleClass="outputLabel" />
+
+                    </h:panelGrid>
+
+                    <h:panelGrid columns="2" columnClasses="label, value">
+                        <h:outputText value="Naturalidade: " />
+                        <h:outputText value="#{estadoNatal.city}"
+                                      styleClass="outputLabel" />
+
+                        <h:outputText value="UF: " />
+                        <h:outputText value="#{estadoNatal.country}"
+                                      styleClass="outputLabel" />
+
+                        <h:outputText value="Nacionalidade: " />
+     envolvidobase          <h:outputText value="#{envolvidoBean.envolvido.paisNatal}"
+                                      styleClass="outputLabel" />
+                    </h:panelGrid>
+
+                    <h:panelGrid columns="2" columnClasses="label, value">
+
+                        <h:outputText value="Celenvolvidobase>
+                        <h:outputText value="#{envolvidoBean.envolvido.celular}"
+                                      styleClass="outputLabel" />
+
+                        <h:outputText value="Celular: " />
+ envolvidobase              <h:outputText value="#{envolvidoBean.envolvido.celular1}"
+                                      styleClass="outputLabel" />
+
+                        <h:outputText value="Telefone Fixo: " />
+                        <h:outputText valenvolvidobaseolvidoBean.envolvido.fixo}"
+                                      styleClass="outputLabel" />
+
+                        <h:outputText value="Email: " />
+         envolvidobase      <h:outputText value="#{envolvidoBean.envolvido.email}"
+                                      styleClass="outputLabel" />
+
+                        <h:outputText />
+                        <h:outputText />
+                    </h:panelGrid>
+
+                    <h:panelGrid columns="2" columnClasses="label, value">
+
+                        <h:outputText value="Informações Adicionais: " />
+                        <h:outputText
+                           envolvidobase{envolvidoBean.envolvido.inforadiciona}"
+                            styleClass="outputLabel" />
+                    </h:panelGrid>
+
+                </p:panelGrid>
+                <h:form>
+                    <p:growl id="growl" life="2000" />
+
+                    <p:commandButton value="Salvar" id="salvar" update="growl"
+                                     actionListener="#{buttonView.buttonAction}"
+                                     styleClass="ui-priority-primary" />
+                    <p:commandButton value="Editar" id="editar" update="growl"
+                                     actionListener="#{buttonView.buttonAction1}"
+                                     styleClass="ui-priority-secundary" />
+
+                </h:form>
+
+            </p:panel>
+        </p:tab>
+    </h:body>
+</html>
+

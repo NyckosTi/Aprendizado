@@ -1,0 +1,260 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    Header
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                    Footer
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                    <p:menu>
+                        <p:submenu label="Resources">
+                            <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                            <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                            <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
+                            <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+
+                        </p:submenu>
+
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    Welcome to PrimeFaces<f:view>
+
+
+                        <h:form>
+                            <h1><h:outputText value="List"/></h1>
+                            <p:dataTable value="#{EnvolvidoBean.envolvido}" var="item">
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Contato"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.contato}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Endereco"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.endereco}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Qualificacao"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.qualificacao}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Nome"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.nome}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Sexo"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.sexo}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="DtNascimento"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.dtNascimento}">
+                                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                                    </h:outputText>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Identidade"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.identidade}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Orgao"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.orgao}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Pai"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.pai}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Mae"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.mae}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Cor"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.cor}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="EstadoCivil"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.estadoCivil}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Profissao"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.profissao}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="LocalTrabalho"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.localTrabalho}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Anonimo"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.anonimo}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Apelido"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.apelido}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Cpf"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.cpf}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="CidadeNatal"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.cidadeNatal}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="UfNatal"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.ufNatal}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="PaisNatal"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.paisNatal}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Logradouro"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.logradouro}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Numero"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.numero}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Cidade"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.cidade}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Referencia"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.referencia}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Uf"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.uf}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Pais"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.pais}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Cep"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.cep}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Celular"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.celular}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Celular1"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.celular1}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Fixo"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.fixo}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Inforadiciona"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.inforadiciona}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Email"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.email}"/>
+                                </p:column>
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Rg"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.rg}"/>
+                                </p:column>
+                            </p:dataTable>
+                        </h:form>
+                    </f:view>
+
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+

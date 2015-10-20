@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Componente</title>
+    </h:head>
+    <h:body>
+        <h:form>
+    <h:panelGrid columns="3" cellpadding="5">
+        <h:outputLabel for="menu" value="Guarnição:" />
+        <p:selectCheckboxMenu id="menu" value="#{componeteView.selectedComponete}" label="Componete"
+                              filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+            <f:selectItems value="#{componeteView.componete}" />
+        </p:selectCheckboxMenu>
+        <p:commandLink value="OK" update="display" />
+    </h:panelGrid>
+ 
+    <p:outputPanel id="display" style="width:250px;padding-left:5px;margin-top:10px">
+        <p:dataList value="#{componeteView.selectedComponete}" var="componete" emptyMessage="Selecione os Componentes">
+            #{componete}
+        </p:dataList>
+    </p:outputPanel>
+</h:form>
+    </h:body>
+</html>
+

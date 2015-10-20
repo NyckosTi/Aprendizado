@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html template="/WEB-INF/template/LayoutPadrao.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <style type="text/css">
+            .p_tabclass {
+                width: auto;
+                text-align: center;
+            }
+
+            .h_columnclass {
+                font-weight: bold;
+            }
+        </style>
+        <title>Envolvido</title>
+    </h:head>
+
+    <h:body>
+        <h:form id="lista">
+            <p:dataTable value="#{envolvidoBean.skip}" var="envolvido"
+                         id="listaEnvolvido" rendered="#{not empty envolvidoBean.skip}"
+                         rows="10" paginator="true">
+                <f:facet name="header">Listagem de envolvidos</f:facet>
+                <p:column styleClass="colunaId">
+                    <f:facet name="header">Id</f:facet>
+                        #{envolvidoBean.envolvidobase.id}
+                </p:column>
+                <p:column styleClass="colunaNome">
+                    <f:facet name="header">Nome</f:facet>
+                        #{envolvidoBenvolvidobasevido.nome}
+                </p:column>
+                <p:column>
+                    <f:facet name="header">Celular</f:facet>
+                        #{envolvidoBenvolvidobasevido.celular}
+                </p:column>
+                <p:column styleClass="colunaData">
+                    <f:facet name="header">Data cadastro</f:facet>
+                    <h:outputText value="#{enenvolvidobasean.envolvido.dtNascimento}">
+                        <f:convertDateTime dateStyle="medium" />
+                    </h:outputText>
+                </p:column>
+<!--                <p:column>
+                    <f:facet name="header">Endereço</f:facet>
+                        #{envolvido.endereco}
+                </p:column>-->
+<!--                <p:column styleClass="colunaValor">
+                    <f:facet name="header">Renda</f:facet>
+                    <h:outputText value="#{envolvido.renda}">
+                        <f:convertNumber currencyCode="BRL" type="currency" />
+                    </h:outputText>
+                </p:column>-->
+                <p:column>
+                    <f:facet name="header">Email</f:facet>
+                        #{envolvidoBenvolvidobasevido.email}
+                </p:column>
+                <p:column>
+                    <f:facet name="header">Ações</f:facet>
+                    <p:panelGrid columns="2" layout="grid">
+                        <p:commandLink action="#{envolvidoBean.excluir}" ajax="false"
+                                       onclick="if (!confirm('Deseja excluir o envolvido envolvidobasedoBean.envolvido.nome}?'))
+                                                   return false;">
+                            <h:graphicImage library="imagens" name="delete.png" />
+                            <f:setPropertyActionListener target="#{envolvidoBean.envolvidobase}" value="#{envolvidobase}" />
+                        </p:commandLink>
+
+                        <p:commandLink process="listaEnvolvido"
+                                       oncomplete="PF('alterarEnvolvido').show()"
+                                       update=":formularioAlterar">
+                            <h:graphicImage library="imagem" name="editar.ico" />
+                            <f:setPropertyActionListener target="#{envolvidoBean.envolvidobase}" value="#{envolvidobase}" />
+                        </p:commandLink>
+
+                    </p:panelGrid>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+
+        <p:dialog header="Alterar" widgetVar="alterarEnvolvido" modal="true"
+                  appendTo="@(body)" showEffect="fade" hideEffect="fade"
+                  resizable="false" id="dialog">
+            <h:form id="formularioAlterar">
+                <p:outputPanel id="painelAlterar">
+                    <h:panelGrid columns="2">
+                        <h:outputLabel value="Nome:" styleClass="nomeAtributos" />
+                        <p:inputText value="#{envolvidoBean.envolvidobase.nome}" maxlength="60" size="60" onkeypress="return soLetras(event)"/>
+                        <h:outputLabel value="Telefone:" styleClass="nomeAtributos" />
+                        <p:inputText value="#{envolvidoBean.envolvidobase.celular}" size="24"/>
+                        <h:outputLabel value="Endereço:" styleClass="nomeAtributos" />
+                        <p:inputText value="#{envolvidoBean.envolvidobase.logradouro}" maxlength="85" size="85"/>
+                        <h:outputLabel value="Email:" styleClass="nomeAtributos" />
+                        <p:inputText value="#{envolvidoBean.envolvidobase.email}" maxlength="50" size="50"/>
+                        <h:outputLabel value="Renda:" styleClass="nomeAtributos" />
+                        <h:column>
+                            <h:outputText value="Cidade " styleClass="nomeAtributos" />
+                            <p:inputText value="#{envolvidoBean.envolvidobase.cidade}">
+                                         <!--                                onkeydown="mascara(this,moeda)" maxlength="12" size="12">
+                                                                         <f:convertNumber currencyCode="BRL"-->/>
+                        </p:inputText>
+                    </h:column>
+                </h:panelGrid>
+                <br/>
+                <p:commandButton value="Salvar" action="#{envolvidoBean.cadastrarEnvolvido}" styleClass="botoes" update=":lista" />
+            </p:outputPanel>
+        </h:form>
+    </p:dialog>
+
+    <br />
+
+</h:body>
+</html>

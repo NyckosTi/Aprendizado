@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <f:view contentType="text/html"/>
+    <h:head>
+        <f:facet name="first">
+            <meta content='text/html; charest=UTF-8' http-equiv="Content-Type"/>
+            <title>Controle de Ocorrencias</title>
+
+        </f:facet>
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true">
+            <p:layoutUnit position="north" header="SISTEMA DE GERENCIAMENTO DE OCORRÊNCIA POLICIAL MILITAR " size="100" resizable="true" collapsible="true">
+                <p:toolbar>
+                    <h:form id="form">
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <p:outputLabel for="orientation" value="Orientation:" />
+                            <p:selectOneButton id="orientation" value="#{megaMenuView.orientation}" onchange="$('#form').submit()">
+                                <f:selectItem itemLabel="Horizontal" itemValue="horizontal" />
+                                <f:selectItem itemLabel="Vertical" itemValue="vertical" />
+                            </p:selectOneButton>
+                        </h:panelGrid>
+                    </h:form>
+
+                    Menus Superiores
+                    <p:toolbarGroup>
+
+
+
+                    </p:toolbarGroup>
+                </p:toolbar>                
+            </p:layoutUnit>
+            Painel Inferior
+            <p:layoutUnit position="south" size="150" header="Comandos" resizable="true" collapsible="true">
+                Menus infeiroes
+                <p:toolbarGroup>
+                    <p:commandButton value="Salvar" icon="ui-icon-disk" ></p:commandButton>
+
+                    <p:commandButton value="Editar" icon="ui-icon-document" ></p:commandButton>
+
+                    <p:commandButton value="Excluir" icon="ui-icon-trash" ></p:commandButton>
+                </p:toolbarGroup>
+            </p:layoutUnit>
+            Painel Esquerdo
+            <p:layoutUnit position="west" size="240" header="Eentrada de dados" resizable="true" collapsible="true">
+                Menu Esquerdo
+                <p:menu>
+                    <p:submenu label="Menus Cadastrar">
+                        <p:menuitem value="Atendimento" url=""/>
+                        <p:menuitem value="Ocorrência" url=""/>
+                        <p:menuitem value="Envolvido" url=""/>
+                        <p:menuitem value="Usuário" url=""/>
+                    </p:submenu>
+                </p:menu>
+
+            </p:layoutUnit>
+            Painel Direito
+            <p:layoutUnit position="east" size="200" header="Controle" resizable="true" collapsible="true" effect="drop">
+                <h:outputText value="Área Administrativa " />
+                <h:panelGrid width="100%" style="text-align:right">  
+                    Campo de busca
+                    <h:panelGroup>  
+                        <p:commandButton icon="ui-icon-search"  update=""> 
+
+                            <h:outputText value="" />  
+
+                            <p:inputText size="10" id="pesquisa"  
+                                         value="" />  
+                            <h:outputLabel />  
+
+                        </p:commandButton> 
+
+                    </h:panelGroup>  
+
+                    <h:form> 
+
+
+                    </h:form>
+
+                </h:panelGrid>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center">
+                <h3 style="margin-top:0">Custom Scrollbars</h3>
+                <p:scrollPanel style="width:850px;height:150px">
+
+                    <p>
+                        Vivamus ac ullamcorper magna. Aenean felis ante, elementum sit amet urna at, eleifend aliquet velit. Morbi a convallis magna. In nec leo vel dolor hendrerit pharetra. Cras in iaculis enim. Aenean porta sapien dignissim turpis dapibus, eu dictum velit elementum. Aliquam sollicitudin gravida luctus.
+                    </p>
+
+                </p:scrollPanel>
+
+                <h3>Native ScrollPanel</h3>
+                <p:scrollPanel mode="native" style="width:850px;height:150px">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean blandit tortor a ipsum vehicula, in semper sapien auctor. Nulla tempor eget est non consequat. Nulla sit amet lorem justo. Cras non tellus eros. Sed ultricies orci ut quam interdum fringilla. Nam vitae massa ac mi elementum mattis vel vitae sem. Ut eros ipsum, scelerisque a erat a, eleifend luctus nibh. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                    </p>
+
+                </p:scrollPanel>
+            </p:layoutUnit>
+
+        </p:layout>
+    </h:body>
+</html>

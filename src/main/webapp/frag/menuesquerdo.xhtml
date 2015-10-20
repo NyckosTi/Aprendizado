@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Atendimento</title>
+    </h:head>
+    <h:body>
+        <p:menu>
+            <p:submenu label="Menus Cadastrar">
+                <p:menuitem value="Atendimento" url=""/>
+                <p:menuitem value="Ocorrência" url=""/>
+                <p:menuitem value="Envolvido" url="">
+
+                    <p:dialog header="Envolvido" widgetVar="dlg" modal="true" dir="rtl" width="800" footer="#{envolvidoBean.abrirDialogo()}" resizable="true">
+                        <h:outputText value="#{envolvidoBean.envolvidobase}" />
+                    </p:dialog>
+                    
+                </p:menuitem>
+                <p:menuitem value="Usuário" url=""/>
+            </p:submenu>
+        </p:menu>
+    </h:body>
+</ui:composition>

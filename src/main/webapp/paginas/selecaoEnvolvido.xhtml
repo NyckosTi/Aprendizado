@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta charset="UTF-8"/>
+	<title>Seleção de envolvido</title>
+	
+	<h:outputStylesheet library="siop" name="estilo.css" />
+</h:head>
+<h:body>
+
+	<h:form>
+    	<div style="margin-top: 5px; margin-bottom: 20px">
+    		<p:inputText id="nome" size="40" value="#{selecaoEnvolvidoBean.nome}" placeholder="Nome do envolvido" />
+    		
+    		<p:spacer width="10px"/>
+    		
+    		<p:commandButton value="Pesquisar" action="#{selecaoEnvolvidoBean.pesquisar}" update="@form" />
+    	</div>
+    	
+    	<p:dataTable value="#{selecaoEnvolvidoBean.envolvidosFiltrados}" var="envolvido"
+    		emptyMessage="Nenhum envolvido encontrado." rows="10"
+    		paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom">
+    		
+    		<p:column headerText="Código" style="text-align: center; width: 40px">
+    			<h:outputText value="#{envolvido.id}" />
+    		</p:column>
+    		<p:column headerText="Nome">
+    			<h:outputText value="#{envolvido.nome}" />
+    		</p:column>
+    		<p:column style="width: 30px; text-align: center">
+    			<p:commandButton icon="ui-icon-check" title="Selecionar"
+    				action="#{selecaoEnvolvidoBean.selecionar(envolvido)}"
+    				process="@this" />
+    		</p:column>
+    		
+    	</p:dataTable>
+	</h:form>
+
+</h:body>
+</html>

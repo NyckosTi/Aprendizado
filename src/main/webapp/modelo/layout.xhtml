@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <f:view contentType="text/html"/>
+    <h:head>
+        <f:facet name="first">
+            <title>Controle de Ocorrencias</title>
+        </f:facet>
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true">
+            <p:layoutUnit style="text-align: center" position="north"  header="SISTEMA DE GERENCIAMENTO DE OCORRÊNCIA POLICIAL MILITAR " resizable="true" collapsible="true"> 
+                <p:toolbar>
+                    <p:toolbarGroup><p:commandButton value="Início" icon="ui-icon-home"></p:commandButton></p:toolbarGroup>
+                    <p:separator />
+                    <p:toolbarGroup><p:commandButton value="Gestão" icon="ui-icon-gear"></p:commandButton></p:toolbarGroup>
+                    <p:separator />
+                </p:toolbar>
+            </p:layoutUnit>
+
+            
+            <!--Painel Esquerdo-->
+            <p:layoutUnit position="west" size="240" header="Entrada de dados" resizable="true" collapsible="true">
+                <!--Menu Esquerdo-->
+
+                <h:head>
+
+                    <ui:include src="/frag/menuesquerdo.xhtml"/>
+
+                </h:head>
+
+
+                <!-- <p:toolbar>
+                                    <p:toolbarGroup><p:commandButton  value="Cadastrar"  onclick="PF('dlg').show();" type="button" />
+                                        <p:dialog header="Envolvido" widgetVar="dlg" modal="true" dir="rtl" width="400" footer="" resizable="true">
+                                            <h:outputText value="" />
+                                        </p:dialog>
+                                    </p:toolbarGroup>
+                                    <p:separator />
+                                    <p:toolbarGroup><p:commandButton value="Gestão" icon="ui-icon-gear"></p:commandButton></p:toolbarGroup>
+                                    <p:separator />
+                                </p:toolbar>-->
+                <!--se USER == CPU { INCLUDE MENU_CPU}
+                else if USER  ==  ATENDENTE {INCLUDE MENU_ATENDENTE}
+                ELSE{INCLUDE ATENDENTE}-->
+            </p:layoutUnit>
+            <!--Painel Direito-->
+            <p:layoutUnit position="east" size="200" header="Controle" resizable="true" collapsible="true" effect="drop">
+
+            </p:layoutUnit>
+
+
+
+
+            <p:layoutUnit position="center">
+                <p:inputText/>
+                <p:commandButton  value="Buscar"  onclick="PF('dlg').show();"  />
+            </p:layoutUnit>
+            <h:form>
+
+                <p:dialog header="Tela de Busa" widgetVar="dlg" position="" footer="#{envolvidoBean.abrirDialogo()}" modal="true" dynamic="true" resizable="false"  closable="false" closeOnEscape="true">
+                    <p:inputText/>
+                    <p:commandButton  value="Cadastrar?"  onclick="PF('cadt').show();" />
+                </p:dialog>
+
+            </h:form>
+            <h:form>
+
+                <p:dialog header="Envolvido" widgetVar="cadt" modal="true" maximizable="true" minimizable="false">
+
+                </p:dialog>
+            </h:form>
+            <!--Painel Inferior-->
+            <p:layoutUnit position="south" size="150" header="Comandos" resizable="true" collapsible="true">
+                <!-- Menus infeiroes-->
+
+            </p:layoutUnit>
+        </p:layout>
+    </h:body>
+</html>

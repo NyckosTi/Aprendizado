@@ -1,0 +1,202 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="titulo">Novo envolvido</ui:define>
+
+    <ui:define name="corpo">
+        <h:form>
+            <h1>Novo envolvido</h1>
+            <p:messages autoUpdate="true" closable="true" />
+            <p:toolbar style="margin-top: 20px">
+                <!--                <p:toolbarGroup>
+                                    <p:button value="Novo" outcome="/produtos/CadastroProduto" />
+                                    <p:commandButton value="Salvar" id="botaoSalvar" action="#{cadastroProdutoBean.salvar}" />
+                                </p:toolbarGroup>-->
+                <p:toolbarGroup >
+                    <p:button value="Pesquisa" outcome="/pesquisa/PesquisaEnvolvido" />
+                </p:toolbarGroup>
+            </p:toolbar>
+
+            <h:panelGrid columns="1" id="painel" style="width: 100%; margin-top: 2px" columnClasses="rotulo, campo">
+                <p:panel header="Dados Pessoais" style="text-align: center">
+                    <h:panelGrid columns="8" style="width: 100%; margin-top: 20px; text-align: right" >
+                        <h:outputText value="Nome : *" />
+                        <p:inputText id="nome" value="#{envolvidoBean.envolvidobase.nome}" placeholder="Campo Obrigatório"
+                                     required="true"  requiredMessage="Falta o nome do cadastrado."/>
+
+                        <h:outputText value="Apelido: " />
+                        <p:inputText value="#{envolvidoBean.envolvidobase.apelido}" />
+
+                        <p:outputLabel value="Data de Nascimento:" />
+                        <p:calendar value="#{envolvidoBean.envolvidobase.dtNascimento}" locale="pt_BR"
+                                    pattern="dd/MM/yyyy"
+                                    autocomplete="true" mask="true" navigator="true" effect="puff"
+                                    showButtonPanel="true"/>
+
+                        <h:outputText value="Estado Civíl: " />
+                        <p:selectOneMenu id="estadoCivil" value="#{envolvidoBean.envolvidobase.estadoCivil}" style="width:165px" effect="puff">
+                            <f:selectItem itemLabel="Selecione" itemValue="" />
+                            <f:selectItem itemLabel="Não Informado " itemValue="Não Informado  " />
+                            <f:selectItem itemLabel="Solteiro(a)" itemValue="Solteiro(a)"/>
+                            <f:selectItem itemLabel="Casado(a) " itemValue="Casado(a) " />
+                            <f:selectItem itemLabel="Divorciado(a) " itemValue="Divorciado(a) " />
+                            <f:selectItem itemLabel="Viúvo(a)" itemValue="Viúvo(a) " />
+                            <f:selectItem itemLabel="Separado(a)" itemValue="Separado(a)"/>
+                            <f:selectItem itemLabel="União Estável " itemValue="União Estável " />
+                        </p:selectOneMenu>
+
+
+                        <h:outputText value="RG: " />
+                        <p:inputMask id="rg" value="#{envolvidoBean.envolvidobase.rg}" mask="999999?9999999" />
+
+                        <h:outputText value="Sexo: *" />
+                        <p:selectOneMenu id="sexo" value="#{envolvidoBean.envolvidobase.sexo}" required="true" requiredMessage="Defina um sexo" style="width:165px" effect="puff">
+                            <f:selectItem itemLabel="Selecione " itemValue="" />
+                            <f:selectItem itemLabel="Masculino " itemValue="Masculino " />
+                            <f:selectItem itemLabel="Feminino " itemValue="Feminino " />
+                        </p:selectOneMenu>
+
+                        <h:outputText value="Uf: " />
+                        <p:selectOneMenu id="country" value="#{estadoNatal.country}"
+                                         style="width:165px" effect="puff" >
+                            <p:ajax listener="#{estadoNatal.onCountryChange}" update="city" />
+                            <f:selectItem itemLabel="Selecione a UF" itemValue=""
+                                          noSelectionOption="true" />
+                            <f:selectItems value="#{estadoNatal.countries}" />
+                        </p:selectOneMenu>
+
+                        <h:outputText value="Cor: " />
+                        <p:selectOneMenu id="cor" value="#{envolvidoBean.envolvidobase.cor}" required="true" requiredMessage="Defina uma cor." style="width:165px" effect="puff">
+                            <f:selectItem itemLabel="Selecione" itemValue="" />
+                            <f:selectItem itemLabel="Ingnorada" itemValue="Ingnorada"/>
+                            <f:selectItem itemLabel="Amarela " itemValue="Amarela" />
+                            <f:selectItem itemLabel="Branca " itemValue="Branca" />
+                            <f:selectItem itemLabel="Indígena " itemValue="Indígena" />
+                            <f:selectItem itemLabel="Parda" itemValue="Parda"/>
+                            <f:selectItem itemLabel="Preta " itemValue="Preta" />
+
+                        </p:selectOneMenu>
+
+                        <h:outputText value="Orgão Emissor: " />
+                        <p:inputText value="#{envolvidoBean.envolvidobase.orgao}" />
+
+                        <h:outputText value="Pai: " />
+                        <p:inputText value="#{envolvidoBean.envolvidobase.pai}" />
+
+                        <h:outputText value="Natural de: " />
+                        <p:selectOneMenu id="city" value="#{estadoNatal.city}"
+                                         style="width:165px" effect="puff">
+                            <f:selectItem itemLabel="Selecione a Cidade" itemValue=""
+                                          noSelectionOption="true" />
+                            <f:selectItems value="#{estadoNatal.cities}" />
+                        </p:selectOneMenu>
+
+                        <h:outputText value="Profissão: " />
+                        <p:inputText value="#{envolvidoBean.envolvidobase.profissao}" />
+
+                        <h:outputText value="CPF: " />
+                        <p:inputMask id="cpf" value="#{envolvidoBean.envolvidobase.cpf}" mask="999.999.999-99" />
+
+
+                        <h:outputText value="Mãe: " />
+                        <p:inputText value="#{envolvidoBean.envolvidobase.mae}" />
+
+                        <h:outputText value="Nacionalidade: " />
+                        <p:inputText value="#{envolvidoBean.envolvidobase.paisNatal}" />
+
+                        <h:outputText value="Local de Trabalho: " />
+                        <p:inputText value="#{envolvidoBean.envolvidobase.localTrabalho}" />
+                    </h:panelGrid>
+                </p:panel>
+                <!--                <p:messages autoUpdate="true"/>-->
+                <p:panel header="Endereço" style="text-align: center">
+                    <h:panelGrid columns="8" style="width: 100%; margin-top: 20px" columnClasses="rotulo, campo">
+                        <h:outputText value="Logradouro: " />
+                        <p:inputText value="#{envolvidoBean.envolvidobase.logradouro}"
+                                     placeholder="Av, rua, viela..." />
+
+                        <h:outputText value="Número: " />
+                        <p:inputText value="#{envolvidoBean.envolvidobase.numero}"
+                                     placeholder="Apenas Números" />
+
+                        <h:outputText value="UF: " />
+                        <p:selectOneMenu id="estado" value="#{listaEstado.estado}"
+                                         style="width:165px" effect="puff">
+                            <p:ajax listener="#{listaEstado.onEstadoChange}" update="cidade" />
+                            <f:selectItem itemLabel="Selecione a UF" itemValue=""
+                                          noSelectionOption="true" />
+                            <f:selectItems value="#{listaEstado.estados}" />
+                        </p:selectOneMenu>
+
+                        <h:outputText value="Cidade: " />
+                        <p:selectOneMenu id="cidade" value="#{listaEstado.cidade}"
+                                         style="width:165px" effect="puff">
+                            <f:selectItem itemLabel="Selecione a Cidade" itemValue=""
+                                          noSelectionOption="true" />
+                            <f:selectItems value="#{listaEstado.cidades}" />
+                        </p:selectOneMenu>
+
+                        <h:outputText value="Referencia: " />
+                        <p:inputText value="#{envolvidoBean.envolvidobase.referencia}"
+                                     placeholder="Local Próximo" />
+
+                        <h:outputText value="CEP: " />
+                        <p:inputMask id="cep" value="#{envolvidoBean.envolvidobase.cep}" mask="99999-999" placeholder="Apenas Números"/>
+
+                        <h:outputText value="País: " />
+                        <p:inputText value="#{envolvidoBean.envolvidobase.pais}" />
+
+                        <h:outputText value="Dados não disponívei " />
+                        <h:selectBooleanCheckbox value="#{envolvidoBean.skip}"/>
+                    </h:panelGrid>
+                </p:panel>
+
+                <p:panel header="Contato" style="text-align: center">
+                    <h:panelGrid columns="8" style="width: 100%; margin-top: 20px" columnClasses="rotulo, campo">
+                        <h:outputText value="Celular: " />
+                        <p:inputMask value="#{envolvidoBean.envolvidobase.celular}" mask="+55(99)9999-9999?9" placeholder="Número do celular"/>
+
+                        <h:outputText value="Celular: " />
+                        <p:inputMask id="celular1" value="#{envolvidoBean.envolvidobase.celular1}" mask="+55(99)9999-9999?9" placeholder="Número do celular"/>
+
+                        <h:outputText value="fixo"/>
+                        <p:inputMask id="fixo" value="#{envolvidoBean.envolvidobase.fixo}" mask="+55(99)9999-9999" placeholder="Número do telefone fixo"/>
+
+                        <h:outputLabel for="email1" value="Email"/>
+                        <p:inputText id="email1"  value="#{envolvidoBean.envolvidobase.email}" />
+
+                        <p:message for="email1" display="tooltip" />
+                        <h:outputText value="#{customValidationView.text}" />
+
+                        <h:outputText value="Dados não disponívei " />
+                        <h:selectBooleanCheckbox value="#{envolvidoBean.skip}" style="left: inherit" />
+                    </h:panelGrid>
+                </p:panel>
+
+
+
+                <p:panel header="Informações Adicionais"  style="text-align: center">
+                    <p:tab title="Observação">
+                        <ui:include src="/WEB-INF/template/pedidos/ObservacaoPedido.xhtml"  />
+                    </p:tab>
+                    <!--                    <h:panelGrid style="text-align: right">
+
+                                            <p:inputTextarea rows="3" cols="160" envolvidobaseethod="#{envolvidoBean.envolvidobase.inforadiciona}" queryDelay="750" minQueryLength="4" />
+
+                                        </h:panelGrid>-->
+                </p:panel>
+
+                <h:outputText value="Dados não disponívei " />
+                <h:selectBooleanCheckbox value="#{envolvidoBean.skip}" style="left: auto" />
+            </h:panelGrid>
+            <p:toolbarGroup>
+                <p:button value="Novo" outcome="/envolvido/CadastroEnvolvido" />
+                <p:commandButton value="Salvar" id="Salvar" action="#{cadastroProdutoBean.salvar}" />
+            </p:toolbarGroup>
+        </h:form>
+    </ui:define>
+</ui:composition>

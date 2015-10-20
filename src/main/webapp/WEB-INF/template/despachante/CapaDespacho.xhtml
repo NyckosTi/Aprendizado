@@ -1,0 +1,54 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <h:panelGrid columns="4" style="width: 100%; margin-top: 20px" columnClasses="rotulo, campo, rotulo, campo">
+        <p:outputLabel value="Número" />
+        <h:outputText value="12345" />
+
+        <p:outputLabel value="Data do registro" />
+        <h:outputText value="08/06/2015" />
+
+        <p:outputLabel value="Stágio"/>
+        <h:outputText value="Atendimento" />
+
+        <p:outputLabel value="Atendente" for="atendente" />
+        <p:selectOneMenu id="atendente">
+            <f:selectItem itemLabel="Selecione" />
+            <f:selectItem itemLabel="Júnior Andrade" />
+        </p:selectOneMenu>
+
+        <p:outputLabel value="Natureza" for="natureza"/>
+        <p:autoComplete id="natureza" size="60" dropdown="true" />
+
+        <p:outputLabel value="Forma do acionamento" for="formaAcionamento"/>
+        <p:selectOneMenu id="formaAcionamento">
+            <f:selectItem itemLabel="Selecione" />
+            <f:selectItem itemLabel="Via 190" />
+        </p:selectOneMenu>
+
+        <p:outputLabel value="Qualificação" for="qualificacao"/>
+        <p:selectOneMenu id="qualificacao">
+            <f:selectItem itemLabel="Selecione" />
+            <f:selectItem itemLabel="Vulto" />
+            <f:selectItem itemLabel="Simples" />
+        </p:selectOneMenu>
+
+        <p:outputLabel value="Guarnição" for="guarnicao"/>
+        <p:autoComplete id="guarnicao" size="20" dropdown="true" />
+        <!--        <p:outputLabel value="" for="valorFrete"/>
+                <p:inputText id="valorFrete" size="10" maxlength="10" />-->
+
+        <!--        <p:outputLabel value="Subtotal" style="font-weight: bold"/>
+                <h:outputText value="R$ 0,00" style="font-weight: bold" id="subtotal" />-->
+
+        <!--        <p:outputLabel value="Valor de desconto" for="valorDesconto"/>
+                <p:inputText id="valorDesconto" size="10" maxlength="10" />-->
+
+        <!--        <p:outputLabel value="Total do pedido" style="font-weight: bold; font-size: 1.1em"/>
+                <h:outputText value="R$ 0,00" style="font-weight: bold; font-size: 1.1em" id="totalPedido" />-->
+    </h:panelGrid>
+
+</ui:composition>

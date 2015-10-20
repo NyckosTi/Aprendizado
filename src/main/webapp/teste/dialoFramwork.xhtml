@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>DialogFramwork</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:commandButton value="View" icon="ui-icon-extlink" actionListener="#{dfView.viewCars}" />
+            <p:commandButton value="Options" icon="ui-icon-extlink" actionListener="#{dfView.viewCarsCustomized}" />
+        </h:form>
+        <h:form>
+            <p:growl id="growl" showDetail="true" />
+
+            <p:commandButton value="Select Car" icon="ui-icon-extlink" actionListener="#{dfView.chooseCar}">
+                <p:ajax event="dialogReturn" listener="#{dfView.onCarChosen}" update="growl" />
+            </p:commandButton>
+        </h:form>
+    </h:body>
+</html>

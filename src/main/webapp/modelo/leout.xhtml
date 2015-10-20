@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Controle de Ocorrencias</title>
+    </h:head>
+    <h:body>
+        
+        <p:layout fullPage="true">
+
+            <p:layoutUnit position="north" header="SISTEMA DE GERENCIAMENTO DE OCORRÊNCIA POLICIAL MILITAR " size="115" resizable="true" collapsible="true">
+                <p:toolbar>
+                    <p:toolbarGroup><p:commandButton icon="ui-icon-home" ></p:commandButton></p:toolbarGroup>
+                </p:toolbar>                
+            </p:layoutUnit>
+            <p:layoutUnit position="south" size="100" header="Comandos" resizable="true" collapsible="true">
+                <h:outputText value="Controles" />
+            </p:layoutUnit>
+
+            <p:layoutUnit position="west" size="200" header="Menus" resizable="true" collapsible="true">
+                <h:outputText value="Eentrada de dados" />
+            </p:layoutUnit>
+
+            <p:layoutUnit position="east" size="200" header="Controle" resizable="true" collapsible="true" effect="drop">
+                <h:outputText value="Área Administrativa " />
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center">
+                //page code
+            </p:layoutUnit>
+
+        </p:layout>
+    </h:body>
+</html>
+
+

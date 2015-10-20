@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:body>
+        <p:panel id="panelResumo">
+            <p:dataTable var="eventos" value="#{resumoBean.listResumo}">
+                <p:column headerText="código" style="width: 50px;">
+                    <p:outputLabel value="#{eventos.i_eventos}"/>
+                </p:column>
+                <p:column headerText="Evento">
+                    <p:outputLabel value="#{eventos.nome_35_evento}"/>
+                </p:column>
+                <p:column headerText="Referência" style="text-align: right">
+                    <p:outputLabel value="#{eventos.vlr_inf}"/>
+                </p:column>                    
+                <p:column headerText="Valor Proventos" style="text-align: right">
+                    <h:outputLabel value="#{eventos.vlr_calc}" rendered="#{eventos.tipo_pd eq 'P'}">
+                        <f:convertNumber currencyCode="R$" type="currency" />
+                    </h:outputLabel>
+                </p:column>   
+                <p:column headerText="Valor Descontos" style="text-align: right">
+                    <h:outputLabel value="#{eventos.vlr_calc}" rendered="#{eventos.tipo_pd eq 'D'}">
+                        <f:convertNumber currencyCode="R$" type="currency" />
+                    </h:outputLabel>
+                </p:column>
+                <f:facet name="footer"/>
+            </p:dataTable>
+
+
+            <p:panelGrid style="width: 100%">
+                <f:facet name="header">
+                    <p:row>
+                        <p:column colspan="4">
+                            <p:outputLabel value="Dados gerais"/>
+                        </p:column>
+                    </p:row>
+                </f:facet>
+                <p:row>
+                    <p:column style="font-weight: bold;text-align: right;">
+                        <p:outputLabel value="Conta creditada"/>
+                    </p:column>
+                    <p:column style="font-weight: bold;text-align: right;">
+                        <p:outputLabel value="#{resumoBean.numeroConta}"/>
+                    </p:column>
+                    <!--                    </p:row>
+                                        <p:row>-->
+                    <p:column style="font-weight: bold;text-align: right;">
+                        <p:outputLabel value="Total de Proventos"/>
+                    </p:column>
+                    <p:column style="font-weight: bold;text-align: right;">
+                        <p:outputLabel value="#{resumoBean.totalProventos}"/>
+                    </p:column>
+                </p:row>
+                <p:row>
+                    <p:column style="font-weight: bold;text-align: right;">
+                        <p:outputLabel value="Total de descontos"/>
+                    </p:column>
+                    <p:column style="font-weight: bold;text-align: right;">
+                        <p:outputLabel value="#{resumoBean.totalDescontos}">
+                            <f:convertNumber pattern="#0.00" type="currency" currencyCode="RS" currencySymbol="R$"/>
+                        </p:outputLabel>                        
+                    </p:column>
+                    <!--                    </p:row>
+                                        <p:row>-->
+                    <p:column style="font-weight: bold;text-align: right;">
+                        <p:outputLabel value="Valor Líquido"/>
+                    </p:column>
+                    <p:column style="font-weight: bold;text-align: right;">
+                        <p:outputLabel value="#{resumoBean.totalLiquido}"/>
+                    </p:column>
+                </p:row>
+                <p:row>
+                    <p:column style="font-weight: bold;text-align: right;">
+                        <p:outputLabel value="Salário base"/>
+                    </p:column>
+                    <p:column style="font-weight: bold;text-align: right;">
+                        <p:outputLabel value="#{resumoBean.salarioBase}"/>
+                    </p:column>
+                    <!--                    </p:row>
+                                        <p:row>-->
+                    <p:column style="font-weight: bold;text-align: right;">
+                        <p:outputLabel value="Sal. contr. INSS"/>
+                    </p:column>
+                    <p:column style="font-weight: bold;text-align: right;">
+                        <p:outputLabel value="#{resumoBean.previdenciaBase}"/>
+                    </p:column>
+                </p:row>
+                <p:row>
+                    <p:column style="font-weight: bold;text-align: right;">
+                        <p:outputLabel value="Base cálc. FGTS"/>
+                    </p:column>
+                    <p:column style="font-weight: bold;text-align: right;">
+                        <p:outputLabel value="#{resumoBean.fgtsBase}"/>
+                    </p:column>
+                    <!--                    </p:row>
+                                        <p:row>-->
+                    <p:column style="font-weight: bold;text-align: right;">
+                        <p:outputLabel value="FGTS do mês"/>
+                    </p:column>
+                    <p:column style="font-weight: bold;text-align: right;">
+                        <p:outputLabel value="#{resumoBean.fgtsMes}"/>
+                    </p:column>
+                </p:row>
+                <p:row>
+                    <p:column style="font-weight: bold;text-align: right;">
+                        <p:outputLabel value="Base cálc. IRRF"/>
+                    </p:column>
+                    <p:column style="font-weight: bold;text-align: right;">
+                        <p:outputLabel value="#{resumoBean.irrfBase}"/>
+                    </p:column>
+                    <!--                    </p:row>
+                                        <p:row>-->
+                    <p:column style="font-weight: bold;text-align: right;">
+                        <p:outputLabel value="Faixa"/>
+                    </p:column>
+                    <p:column style="font-weight: bold;text-align: right;">
+                        <p:outputLabel value="#{resumoBean.faixaIrrf}"/>
+                    </p:column>
+                </p:row>
+
+                <f:facet name="footer">
+                    <p:row>
+                        <p:column colspan="4">
+                            <p:commandButton icon="ui-icon-circle-check" ajax="true"
+                                             immediate="true" oncomplete="PF('pdf_contra_cheque').show()"/>
+                        </p:column>
+                    </p:row>
+                </f:facet>
+            </p:panelGrid>
+
+        </p:panel>
+        <p:dialog header="Contra-cheque" widgetVar="pdf_contra_cheque">
+            <p:panelGrid>
+                <p:outputLabel value="Oi"/>
+            </p:panelGrid>
+            <!--                <p:tabView id="detalhes_contra_cheque">
+
+                                <p:panel id="detalhes_contra_cheque_Pdf" style="text-align: center;">
+                                    <p:media id="pdfViewer" player="pdf" value="" width="900" height="450" />
+                                </p:panel>
+                                <p:panel header="Opções">
+                                    <p:panelGrid columns="3" id="detalhes" styleClass="semBorda">
+
+                                        <p:commandButton icon="ui-icon-close" value="Fechar janela"
+                                                         onclick="pdf_contra_cheque_view.hide()"/>
+                                    </p:panelGrid>
+                                </p:panel>
+                            </p:tabView>-->
+        </p:dialog>
+    </h:body>
+</html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Cadastro de Envolvido</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <div>
+                <h:messages></h:messages>
+                <h:inputHidden value="#{envolvidoBean.envolvidobase.id}"></h:inputHidden>
+                <h:panelGrid columns="2">
+                    
+                    <h:outputLabel id="LblNome" for="nome" value="Nome"></h:outputLabel>
+                    <h:inputText id="TxtNome" value="#{envolvidoBenvolvidobasevido.nome}" size="100" maxlength="100" required="true" requiredMessage="Informe o nome"></h:inputText>
+
+                    <h:outputLabel id="LblDataNascimento" value="Data Nascimento" for="data"></h:outputLabel>
+                    <h:inputText id="TxtDataNascimento"  label="Data Nascimento" value="#{envolvidoBenvolvidobasevido.dtNascimento}" size="10" maxlength="10">
+                        <f:convertDateTime type="date" pattern="dd/mm/yyyy" />  
+                    </h:inputText>
+                    <h:selectOneRadio value="#{envolvidoBean.envolvidobase.sexo}">
+                        <f:selectItem itemValue="1" itemLabel="masculino"></f:selectItem>
+                        <f:selectItem itemValue="2" itemLabel="feminino"></f:selectItem>
+                    </h:selectOneRadio>
+                </h:panelGrid>
+                <h:panelGrid columns="4">
+                    <h:commandButton action="#{envolvidoBean.novo}"  value="Novo"></h:commandButton>
+                    <h:commandButton action="#{envolvidoBean.salvar}"   value="Salvar"></h:commandButton>
+                    <h:commandButton action="#{envolvidoBean.excluir}"  value="Excluir"></h:commandButton>
+                </h:panelGrid>
+            </div>
+        </h:form>
+        <h:form>
+            <h:commandLink action="#{envolvidoBean.mostrarLista}">
+                <h:graphicImage library="imagens"  name="listar.gif" style="border: 0"></h:graphicImage>
+            </h:commandLink>
+
+        </h:form>
+    </h:body>
+</html>

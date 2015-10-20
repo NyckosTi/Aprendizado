@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:h="http://java.sun.com/jsf/html"  
+      xmlns:p="http://primefaces.org/ui"> 
+    <h:head>
+    </h:head> 
+    <h:body> 
+        <h:form> 
+
+            <div style="margin-top: 5px; margin-bottom: 20px">
+                <p:inputText id="nome" size="40" value="#{listagemBean.lista}" placeholder="O que deseja buscar? " />
+
+                <p:spacer width="10px"/>
+
+                <p:commandButton value="Pesquisar" action="#{listagemBean.listar()}" update="@form" />
+            </div>
+
+            <p:dataTable var="fila" id="envTable" value="#{listagemBean.lista}" emptyMessage="No cars found with given criteria" filteredValue="#{listagemBean.listar()}" >
+
+                
+                <p:column headerText="Código" style="text-align: center; width: 40px">
+                    <h:outputText value="#{fila.id}" />
+                </p:column>
+                <p:column headerText="Nome" style="text-align: center; width: 300px" > 
+                    <p:outputLabel value="#{fila.nome}"/> 
+                </p:column> 
+                <p:column headerText="Apelido" style="width: 100px; text-align: center"> 
+                    <h:outputLabel value="#{fila.apelido}" /> 
+                </p:column> 
+                <p:column headerText="Sexo" style="width: 40px; text-align: center"> 
+                    <h:outputLabel value="#{fila.sexo}" /> 
+                </p:column> 
+                <p:column headerText="Nascimento" style="width: 100px; text-align: center"> 
+                    <h:outputLabel value="#{fila.dtNascimento}" /> 
+                </p:column> 
+                <p:column headerText="Rg" style="width: 60px; text-align: center"> 
+                    <h:outputLabel value="#{fila.rg}" /> 
+                </p:column>
+                <p:column headerText="Cpf" style="width: 120px; text-align: center"> 
+                    <h:outputLabel value="#{fila.cpf}" /> 
+                </p:column>
+                
+                <p:column style="width: 40px; text-align: center"> 
+                    <p:commandButton icon="ui-icon-check" title="seleciona" 
+                                     action="#{selecaoClienteBean.selecionar(cliente)}"
+                                     process="@this" /> /> 
+                </p:column>
+                
+                <!--                #####
+                                <div style="margin-top: 5px; margin-bottom: 20px">
+                                    <p:inputText id="nome" size="40" value="#{selecaoClienteBean.nome}" placeholder="Nome do cliente" />
+                
+                                    <p:spacer width="10px"/>
+                
+                                    <p:commandButton value="Pesquisar" action="#{selecaoClienteBean.pesquisar}" update="@form" />
+                                </div>
+                
+                                <p:dataTable value="#{selecaoClienteBean.clientesFiltrados}" var="cliente"
+                                             emptyMessage="Nenhum cliente encontrado." rows="10"
+                                             paginator="true" paginatorAlwaysVisible="false" paginatorPosition="bottom">
+                
+                                    <p:column headerText="Código" style="text-align: center; width: 40px">
+                                        <h:outputText value="#{cliente.id}" />
+                                    </p:column>
+                                    <p:column headerText="Nome">
+                                        <h:outputText value="#{cliente.nome}" />
+                                    </p:column>
+-->                                    <p:column style="width: 30px; text-align: center">
+                                        <p:commandButton icon="ui-icon-check" title="Selecionar"
+                                                         action="#{envolvidoBean.cadastrar()}"
+                                                         process="@this" />
+                                    </p:column><!--
+                
+                                </p:dataTable>
+                
+                                ####-->
+
+            </p:dataTable> 
+        </h:form> 
+    </h:body> 
+</html>
